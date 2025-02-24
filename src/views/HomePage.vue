@@ -16,34 +16,28 @@
 </template>
   
 <script>
+  import api from "@/api";
+
   export default {
     data() {
       return {
         user: null,
       };
     },
-    async mounted() {
-      this.fetchUser();
+    async created() {
+      try {
+        const response = await api.get("/auth/api/user"); // 유저 정보 API 호출
+        this.user = response.data;
+      } catch (error) {
+        console.error("유저 정보를 가져오는 데 실패했습니다.", error);
+      }
     },
     methods: {
-      async fetchUser() {
-        const token = localStorage.getItem("accessToken");
-        if (!token) return;
-  
-        try {
-          const response = await this.$axios.get("http://localhost:8080/auth/api/user", {
-            headers: { Authorization: `Bearer ${token}` }, // ✅ API 요청 시 JWT 포함
-          });
-          this.user = response.data;
-        } catch (error) {
-          console.error("유저 정보 가져오기 실패", error);
-        }
+    logout() {
+        localStorage.removeItem('accessToken');
+        this.$router.push('/login');
       },
-      logout() {
-        localStorage.removeItem("accessToken");
-        this.user = null;
-      }
-    }
+    },
   };
 </script>
 <style>

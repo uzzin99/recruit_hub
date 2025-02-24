@@ -17,4 +17,5 @@ export default {
     FooterPage,
   }
 }
+
 </script>

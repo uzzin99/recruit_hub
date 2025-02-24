@@ -17,6 +17,7 @@ export default {
       if (token) {
         localStorage.setItem("accessToken", token);
         window.history.replaceState({}, document.title, "/oauth2/success"); // ✅ URL에서 토큰 제거
+        
         this.$router.push("/"); // ✅ 홈으로 이동
       } else {
         console.error("JWT를 찾을 수 없습니다.");

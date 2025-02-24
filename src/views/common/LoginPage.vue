@@ -19,15 +19,15 @@ export default {
   },
   methods: {
     loginWithGoogle() {
-      const backendUrl = "http://localhost:8080/oauth2/authorization/google";
+      const backendUrl = ""+process.env.VUE_APP_API_BASE_URL+"/oauth2/authorization/google";
       window.location.href = backendUrl;
     },
     loginWithKakao() {
-      const backendUrl = "http://localhost:8080/oauth2/authorization/kakao";
+      const backendUrl = ""+process.env.VUE_APP_API_BASE_URL+"/oauth2/authorization/kakao";
       window.location.href = backendUrl;
     },
     loginWithNaver() {
-      const backendUrl = "http://localhost:8080/oauth2/authorization/naver";
+      const backendUrl = ""+process.env.VUE_APP_API_BASE_URL+"/oauth2/authorization/naver";
       window.location.href = backendUrl;
     },
 

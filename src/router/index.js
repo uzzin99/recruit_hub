@@ -23,5 +23,15 @@ const routes = [
     history: createWebHistory(process.env.BASE_URL),
     routes
   });
+
+  router.beforeEach((to, from, next) => {
+    const isAuthenticated = !!localStorage.getItem("accessToken");
+    if (to.meta.requiresAuth && !isAuthenticated) {
+      next("/login");
+    } else {
+      next();
+    }
+  });
+  
   
   export default router;
