@@ -1,6 +1,5 @@
 <template>
-    <div style="text-align: center;">
-        <p>--------------------------------</p>
-        <p>푸터입니다.</p>
-    </div>
+<footer class="footer">
+    <p>푸터입니다.</p>
+</footer>
 </template>

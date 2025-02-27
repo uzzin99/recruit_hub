@@ -1,17 +1,35 @@
 <template>
   <div class="login-container">
-    <h3>OAuth2 로그인페이지 입니다.</h3>
-    <button @click="loginWithGoogle" class="btn-blue">Google 로그인</button>
-    <button @click="loginWithKakao" class="btn-yellow">Kakao 로그인</button>
-    <button @click="loginWithNaver" class="btn-green">Naver 로그인</button>
-    <div v-if="user">
-      <h3>로그인에 성공했습니다. 환영합니다.</h3>
-    </div>
+    <h2>로그인</h2>
+    <form class="login-form">
+      <input type="text" placeholder="아이디" class="input-field">
+      <input type="password" placeholder="비밀번호" class="input-field">
+    </form>
+      <div class="options">
+        <label>
+          <input type="checkbox" class="checkbox"> 아이디 저장
+        </label>
+        <router-link to="/findByIdPwd"><a href="#" class="forgot-password">아이디/비밀번호 찾기</a></router-link>
+      </div>
+
+      <button class="btn-login">로그인</button>
+
+      <div class="separator">간편로그인</div>
+
+      <div class="social-login">
+        <button @click="loginWithNaver" class="btn-naver">네이버 로그인</button>
+        <button @click="loginWithKakao" class="btn-kakao">카카오 로그인</button>
+        <button @click="loginWithGoogle" class="btn-google">구글 로그인</button>
+      </div>
+
+      <div class="register-link">
+        아직 회원이 아니신가요? <router-link to="/join">회원가입</router-link>
+      </div>
+    
   </div>
 </template>
-
 <script>
-export default {
+ export default {
   data() {
     return {
       user: null,
@@ -29,76 +47,8 @@ export default {
     loginWithNaver() {
       const backendUrl = ""+process.env.VUE_APP_API_BASE_URL+"/oauth2/authorization/naver";
       window.location.href = backendUrl;
-    },
-
+    }
   },
   
 };
 </script>
-
-<style>
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-  margin: 50px auto; /* 위아래 마진 추가 */
-  padding: 30px; /* 패딩 값 증가 */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-container h3 {
-  margin-bottom: 30px; /* 제목 아래쪽 마진 증가 */
-}
-
-.login-container button {
-  margin-bottom: 20px; /* 버튼 간 간격 증가 */
-  width: 100%;
-}
-
-.btn-blue {
-  background-color: #4285f4; /* Google 파란색 */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px; /* 버튼 모서리 둥글게 */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-}
-
-.btn-blue:hover {
-  background-color: #357ae8; /* Hover 시 약간 더 진한 파란색 */
-}
-
-.btn-green {
-  background-color: #00c73c; /* 네이버 초록색 */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px; /* 버튼 모서리 둥글게 */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-}
-
-.btn-green:hover {
-  background-color: #00b335; /* Hover 시 약간 더 진한 초록색 */
-}
-
-.btn-yellow {
-  background-color: #f7e01b; /* 카카오 노란색 */
-  color: #3c1e1e; /* 카카오 로고 색상 */
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px; /* 버튼 모서리 둥글게 */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-}
-
-.btn-yellow:hover {
-  background-color: #f0d408; /* Hover 시 약간 더 진한 노란색 */
-}
-</style>

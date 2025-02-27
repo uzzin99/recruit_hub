@@ -40,20 +40,3 @@
     },
   };
 </script>
-<style>
-.container {
-    text-align: center;
-    margin-top: 50px;
-}
-.btn-pink {
-  background-color: #fa9cd0;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.btn-pink:hover {
-  background-color: #f87cc0;
-}
-</style>

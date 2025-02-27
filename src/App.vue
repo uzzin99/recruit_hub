@@ -1,7 +1,13 @@
 <template>
   <div id="app">
     <HeaderPage></HeaderPage>
-    <router-view></router-view>
+    
+    <!-- 메인 콘텐츠 -->
+    <main class="main-content">
+      <router-view/>
+    </main>
+    <!-- //메인 콘텐츠 -->
+
     <FooterPage></FooterPage>
   </div>
 </template>
@@ -17,5 +23,4 @@ export default {
     FooterPage,
   }
 }
-
 </script>

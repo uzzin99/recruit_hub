@@ -1,0 +1,70 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 1200px; /* 가로폭 1200px로 고정 */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 메인 콘텐츠 스타일 */
+.main-content {
+  flex-grow: 1; /* 남은 공간을 채움 */
+  max-width: 1200px; /* 최대 너비 제한 */
+  margin: 0 auto; /* 중앙 정렬 */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+
+/* 헤더 스타일 */
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #ddd;
+}
+  
+/* 로고 스타일 */
+.logo img {
+  width: 150px; /* 로고 크기 조절 */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 푸터 스타일 */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-top: 2px solid #ddd;
+  font-size: 14px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header,
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #ddd;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  border-top: 2px solid #ddd;
+  font-size: 14px;
+}

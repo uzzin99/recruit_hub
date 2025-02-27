@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
 import LoginPage from '@/views/common/LoginPage.vue';
 import LoginSuccess from '@/views/common/LoginSuccess.vue';
+import JoinPage from '@/views/common/JoinPage.vue';
+import FindByIdPwdPage from '@/views/common/FindByIdPwdPage.vue';
 
 const routes = [
     {
@@ -16,6 +18,14 @@ const routes = [
     {
       path: '/oauth2/success',
       component: LoginSuccess
+    },
+    {
+      path: '/join',
+      component: JoinPage
+    },
+    {
+      path: '/findByIdPwd',
+      component: FindByIdPwdPage
     }
   ];
   

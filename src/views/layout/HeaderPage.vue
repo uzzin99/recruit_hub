@@ -1,6 +1,8 @@
 <template>
-    <div style="text-align: center;">
-        <p>헤더입니다.</p>
-        <p>--------------------------------</p>
+    <div class="header">
+      <a href="/" class="logo">
+        <p>recruitHub</p>
+        <!-- <img src="@/assets/recruitHub-logo.png" alt="RecruitHub 로고"> -->
+      </a>
     </div>
 </template>
