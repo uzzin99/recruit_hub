@@ -8,6 +8,10 @@ module.exports = defineConfig({
       '/auth/api': {
         target: process.env.VUE_APP_API_BASE_URL,
         changeOrigin: true
+      },
+      '/email/api': {
+        target: process.env.VUE_APP_API_BASE_URL,
+        changeOrigin: true
       }
     }
   }
