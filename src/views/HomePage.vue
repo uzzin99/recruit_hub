@@ -16,27 +16,50 @@
 </template>
   
 <script>
-  import api from "@/api";
+import { useUserStore } from "@/stores/user";
 
-  export default {
-    data() {
-      return {
-        user: null,
-      };
-    },
-    async created() {
-      try {
-        const response = await api.get("/auth/api/user"); // 유저 정보 API 호출
-        this.user = response.data;
-      } catch (error) {
-        console.error("유저 정보를 가져오는 데 실패했습니다.", error);
-      }
-    },
-    methods: {
-    logout() {
-        localStorage.removeItem('accessToken');
-        this.$router.push('/login');
-      },
-    },
-  };
+export default {
+  setup() {
+    const userStore = useUserStore();
+
+    const logout = () => {
+      localStorage.removeItem("accessToken");
+      userStore.setUser(null); // 사용자 정보 초기화
+      this.$router.push("/login");
+    };
+
+    userStore.fetchUser().catch((error) => {
+      console.error("유저 정보를 가져오는 데 실패했습니다.", error);
+    });
+
+    return {
+      user: userStore.user,
+      logout,
+    };
+  },
+};
+
+  //import api from "@/api";
+
+  // export default {
+  //   data() {
+  //     return {
+  //       user: null,
+  //     };
+  //   },
+  //   async created() {
+  //     try {
+  //       const response = await api.get("/user/api/userInfo"); // 유저 정보 API 호출
+  //       this.user = response.data;
+  //     } catch (error) {
+  //       console.error("유저 정보를 가져오는 데 실패했습니다.", error);
+  //     }
+  //   },
+  //   methods: {
+  //   logout() {
+  //       localStorage.removeItem('accessToken');
+  //       this.$router.push('/login');
+  //     },
+  //   },
+  // };
 </script>

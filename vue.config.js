@@ -12,6 +12,10 @@ module.exports = defineConfig({
       '/email/api': {
         target: process.env.VUE_APP_API_BASE_URL,
         changeOrigin: true
+      },
+      '/loginProcess': {
+        target: process.env.VUE_APP_API_BASE_URL,
+        changeOrigin: true
       }
     }
   }
